@@ -1,27 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
     int n;
-    cout<<"Enter The Array Size :- "<< endl;
-    cin>>n;
-    int arr[n];
-    cout<<"Array Element :- "<< endl;
-    for (int i = 0; i < n; i++) 
-    {
-        cin>>arr[i];
-    }
 
-    cout<<"Counting Sort Before"<< endl;
+    cout << "Enter The Array Size :- " << endl;
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Array Element :- " << endl;
     for (int i = 0; i < n; i++)
     {
-        cout<<arr[i]<<" ";
+        cin >> arr[i];
     }
 
+    cout << "Counting Sort Before :- " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Find maximum value
     int mainValue = arr[0];
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         if (arr[i] > mainValue)
         {
@@ -29,31 +34,39 @@ int main()
         }
     }
 
-    int c[mainValue +1] = {0};
+    // Counting array
+    int c[mainValue + 1] = {0};
 
+    // Count frequency
     for (int i = 0; i < n; i++)
     {
-        c[arr[i]] = c[arr[i]] + 1;
         c[arr[i]]++;
     }
 
-    for (int i = 0; i < n; i++)
+    // Cumulative frequency
+    for (int i = 1; i <= mainValue; i++)
     {
-        c[i] = c[i-1] + c[i];
+        c[i] = c[i - 1] + c[i];
     }
-    
+
+    // Output array
     int output[n];
 
-    for (int i = n-1 ; i >= 0; i--)
+    // Build sorted array
+    for (int i = n - 1; i >= 0; i--)
     {
-        output[c[arr[i]]-1] = arr[i];
+        output[c[arr[i]] - 1] = arr[i];
         c[arr[i]]--;
     }
 
+    cout << "Counting Sort After :- " << endl;
+
     for (int i = 0; i < n; i++)
     {
-        cout<<c[arr[i]]<<endl;
+        cout << output[i] << " ";
     }
+
+    cout << endl;
 
     return 0;
 }
