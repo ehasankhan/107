@@ -23,7 +23,6 @@ int main()
     }
     cout << endl;
 
-    // Find maximum value
     int mainValue = arr[0];
 
     for (int i = 1; i < n; i++)
@@ -34,25 +33,20 @@ int main()
         }
     }
 
-    // Counting array
     int c[mainValue + 1] = {0};
 
-    // Count frequency
     for (int i = 0; i < n; i++)
     {
         c[arr[i]]++;
     }
 
-    // Cumulative frequency
     for (int i = 1; i <= mainValue; i++)
     {
         c[i] = c[i - 1] + c[i];
     }
 
-    // Output array
     int output[n];
 
-    // Build sorted array
     for (int i = n - 1; i >= 0; i--)
     {
         output[c[arr[i]] - 1] = arr[i];
