@@ -43,6 +43,8 @@ class MovieShow {
     void display(){
             System.out.println("Movie Name " + movieName);
             System.out.println("Show Time " + showTime);
+            System.out.println("Revenue " + calculateRevenue());
+            System.out.println("Available Seats " + calculateAvilableSeats());
     }
 }
 
