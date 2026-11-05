@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -26,7 +25,7 @@ int main() {
         }   
     }
 
-    cout << t[m][n] << endl;
+    cout <<"Lergest common Subsequence : "<< t[m][n] << endl;
     
     return 0;
 }
