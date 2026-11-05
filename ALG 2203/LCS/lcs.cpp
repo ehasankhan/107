@@ -24,8 +24,28 @@ int main() {
             }
         }   
     }
-
     cout <<"Lergest common Subsequence : "<< t[m][n] << endl;
-    
+
+    string x = "";
+    int i = m;
+    int j = n;
+
+    while (i>0 && j>0)
+    {
+        if (s1[i-1] == s2[j-1]){
+            x += s1[i-1];
+            i--;
+            j--;
+        }
+        else if (t[i-1][j] > t[i][j-1]){
+            i--;
+        }
+        else{
+            j--;
+        }
+        cout <<s1[i]<<" - "<<s2[j]<<" = "<< t[i][j] << endl;
+    }
+    reverse(x.begin(), x.end());
+    cout <<"LCS : "<< x << endl;
     return 0;
 }
